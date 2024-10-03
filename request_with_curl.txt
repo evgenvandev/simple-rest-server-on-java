@@ -1,0 +1,23 @@
+1. Запрос на создание нового пользователя:
+Запрос с форме pretty (симпатичный):
+curl -X POST "localhost:8080/users" -d '
+{
+  "email": "user1@test.com",
+  "roles": ["USER"]
+}
+';
+
+curl -X POST "localhost:8080/users" -d '{"email":"user1@test.com","roles":["USER"]}';
+
+// Одиночные кавычки попадают в тело JSON.
+// Заменяем одиночные кавычки двойными кавычками:
+curl -X POST "localhost:8080/users" -d "{"email":"user1@test.com","roles":["USER"]}";
+
+// Точка с запятой в конце запроса попадают в тело JSON.
+// Удаляем точку с запятой в конце запроса:
+curl -X POST "localhost:8080/users" -d "{"email":"user1@test.com","roles":["USER"]}"
+
+2. Запрос на вывод всех пользователей в базе:
+curl -X GET "localhost:8080/users"
+
+3. 
